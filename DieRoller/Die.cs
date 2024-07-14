@@ -5,6 +5,13 @@
     /// </summary>
     public class Die
     {
+        private static Random _random;
+
+        static Die()
+        {
+            _random = new Random();
+        }
+
         /// <summary>
         /// Create the die and rolls it to set the initial face value
         /// </summary>
@@ -23,7 +30,6 @@
         /// </summary>
         public bool isHeld { get; set; }
 
-
         /// <summary>
         /// Rolls the die and sets the <see cref="FaceValue"/>
         /// to a new number if the die is not currently held.
@@ -35,8 +41,7 @@
             if (!isHeld)
             {
                 // Generate random number
-                Random rand = new Random();
-                byte newValue = (byte)rand.Next(1, 7);
+                byte newValue = (byte)_random.Next(1, 7);
 
                 FaceValue = newValue;
             }
