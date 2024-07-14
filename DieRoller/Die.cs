@@ -6,9 +6,17 @@
     public class Die
     {
         /// <summary>
+        /// Create the die and rolls it to set the initial face value
+        /// </summary>
+        public Die()
+        {
+            Roll();
+        }
+
+        /// <summary>
         /// The current face up value of the die
         /// </summary>
-        public byte FaceValue { get; set; }
+        public byte FaceValue { get; private set; }
 
         /// <summary>
         /// True if the die is currently held
