@@ -24,9 +24,12 @@
         public byte Roll()
         {
             // Generate random number
-            // Set to face value
-            // Return new number
-            throw new NotImplementedException();
+            Random rand = new Random();
+            byte newValue = (byte)rand.Next(1, 7);
+
+            FaceValue = newValue;
+
+            return newValue;
         }
     }
 }
