@@ -23,21 +23,25 @@
         /// </summary>
         public bool isHeld { get; set; }
 
-        
+
         /// <summary>
         /// Rolls the die and sets the <see cref="FaceValue"/>
-        /// to a new number Returns the new number
+        /// to a new number if the die is not currently held.
+        /// Returns the <see cref="FaceValue"/>
         /// </summary>
-        /// <returns>Returns the new random number</returns>
+        /// <returns>Returns the <see cref="FaceValue"/></returns>
         public byte Roll()
         {
-            // Generate random number
-            Random rand = new Random();
-            byte newValue = (byte)rand.Next(1, 7);
+            if (!isHeld)
+            {
+                // Generate random number
+                Random rand = new Random();
+                byte newValue = (byte)rand.Next(1, 7);
 
-            FaceValue = newValue;
+                FaceValue = newValue;
+            }
 
-            return newValue;
+            return FaceValue;
         }
     }
 }
